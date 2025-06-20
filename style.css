@@ -32,3 +32,116 @@ body {
     padding-right: 1rem;
   }
 }
+
+/* Modern Effects */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tilt-card-content {
+  transform: translateZ(20px);
+}
+
+/* Animated underline for links */
+.hover-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee, #a855f7);
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow-on-hover:hover {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(to right, #22d3ee, #a855f7);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Parallax Effect */
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#22d3ee, #a855f7);
+  border-radius: 5px;
+}
+
+/* Button hover effects */
+.gradient-btn {
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gradient-btn:hover {
+  background-position: 100% 100%;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-text {
+  overflow: hidden;
+  border-right: 3px solid #22d3ee;
+  white-space: nowrap;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #22d3ee }
+}
